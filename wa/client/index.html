@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Wabill</title>
+	<meta name="description" content="Kirim tagihan melalui WhatsApp secara otomatis.">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+	<link rel="icon" type="image/svg" href="./assets/icon.svg" />
+	<link rel="stylesheet" type="text/css" href="./assets/main.css">
+</head>
+
+<body>
+	<header>
+		<img src="./assets/logo.svg">
+		<p>Um sistema onde você pode enviar mensagens em massa de forma automática e rápida!</p>
+	</header>
+	<main>
+		<section>
+			<div class="card">
+				<div class="title">Servidor: </div>
+				<div class="body server-input">
+					<input type="text" id="server" value="http://localhost:8000/">
+					<button id="save-server" onclick="toast('fitur simpan belum tersedia')">Editar url</button>
+				</div>
+			</div>
+		</section>
+		<section class="preview-card preview-hidden">
+			<div class="card">
+				<div class="title">Preview</div>
+				<div class="body">
+					<p>Visualização da mensagem</p>
+					<div class="outer-preview-wrapper">
+						<div class="preview-wrapper"></div>
+					</div>
+					<div class="footer">
+						<div></div>
+						<button id="send" onclick="sendMessages()">Enviar</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="middle">
+			<div>
+				<div class="card data-area">
+					<div class="title">Dados da planilha</div>
+					<div class="body data-input">
+						<div class="table-wrapper">
+							<table>
+								<thead></thead>
+								<tbody></tbody>
+							</table>
+						</div>
+						<div class="pull-tab"></div>
+						<textarea id="data" autofocus
+							placeholder="Digite ou cole seus contatos aqui! Certifique-se de que a primeira linha seja o nome da coluna e as demais os números!"></textarea>
+					</div>
+					<div class="footer">
+						<button id="format" onclick="formatData()">Preparar</button>
+						<button id="save-template" class="outline"
+							onclick="toast('fitur simpan belum tersedia')">Salvar</button>
+						<button class="outline" id="reset" onclick="resetData()">Resetar</button>
+						<button class="outline" id="edit" onclick="editData()">Editar</button>
+					</div>
+				</div>
+			</div>
+			<div class="progress-area-wrapper">
+				<div class="card progress-area">
+					<div class="title">Progresso</div>
+					<div class="body">
+						<h3>2/6</h3>
+						<p class="loading-dots">Enviando</p>
+					</div>
+				</div>
+			</div>
+			<div class="template-area-wrapper">
+				<div class="card template-area">
+					<div class="title">Mensagem à ser enviada</div>
+					<div class="body">
+						<div class="pull-tab"></div>
+						<textarea id="template"
+							placeholder="Digite ou cole a mensagem que deseja disparar aos seus contatos!"></textarea>
+					</div>
+					<div class="footer">
+						<div></div>
+						<button id="preview" onclick="previewMessage()">Visualizar</button>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<script src="./assets/main.js"></script>
+</body>
+
+</html>
